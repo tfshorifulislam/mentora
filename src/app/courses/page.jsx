@@ -37,16 +37,24 @@ const CoursesPage = async () => {
                                 Search Courses
                             </Label>
 
-                            <SearchField.Group className="flex items-center gap-2">
+                            <SearchField.Group
+                                className="flex items-center gap-3 rounded-2xl border     bg-white/10 backdrop-blur-xl px-4 py-3 shadow-lg shadow-black/20  focus-within:border-indigo-400/40 transition-all"
+                            >
 
-                                <SearchField.SearchIcon />
+                                <SearchField.SearchIcon className="text-white/60" />
 
                                 <SearchField.Input
-                                    className="w-full text-black placeholder:text-white/40 bg-transparent outline-none"
+                                    className=" w-full bg-transparent outline-none text-white  placeholder:text-white/40"
                                     placeholder="Search by title, category..."
                                 />
 
-                                <SearchField.ClearButton className="text-white/60 hover:text-white" />
+                                <SearchField.ClearButton
+                                    className="
+            text-white/40
+            hover:text-white
+            transition
+        "
+                                />
 
                             </SearchField.Group>
 
