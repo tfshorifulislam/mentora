@@ -1,60 +1,55 @@
 import React from "react";
 import { Avatar, Button, Card, CloseButton, Link } from "@heroui/react";
 
-const SomeProjectDisplay = () => {
+const BecomeACreator = () => {
     return (
-        <div className="w-full bg-slate-950 py-16">
+        <div className="w-full bg-slate-950 py-16 text-white">
 
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* HEADER */}
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl md:text-4xl font-bold text-white">
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Projects</span>
+                <div className="text-center mb-14">
+                    <h1 className="text-3xl md:text-4xl font-bold">
+                        Become{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
+                            Creator
+                        </span>
                     </h1>
 
-                    <p className="text-white/60 mt-3">
-                        Explore top learning builds, community projects, and creative experiments
+                    <p className="text-white/60 mt-4 max-w-2xl mx-auto">
+                        Explore learning opportunities, build real-world projects, and grow your developer career with Mentora.
                     </p>
                 </div>
 
                 {/* GRID */}
-                <div className="flex w-full items-center justify-center">
+                <div className="flex justify-center">
 
-                    <div className="grid w-full max-w-5xl grid-cols-12 gap-5">
+                    <div className="grid w-full max-w-5xl grid-cols-12 gap-6">
 
                         {/* BIG CARD */}
-                        <Card className="col-span-12 bg-white/5 border border-white/10 backdrop-blur-md text-white overflow-hidden">
+                        <Card className="col-span-12 bg-white/5 border border-white/10 backdrop-blur-md text-white p-6">
 
-                            <div className="flex flex-col sm:flex-row">
+                            <div className="flex flex-col gap-4">
 
-                                <img
-                                    alt="Cherries"
-                                    className="h-[180px] sm:h-[140px] sm:w-[180px] w-full object-cover"
-                                    src="https://picsum.photos/id/1011/800/600"
-                                />
+                                <div>
+                                    <h2 className="text-xl font-semibold">
+                                        Become a Mentora Creator!
+                                    </h2>
 
-                                <div className="flex flex-1 flex-col gap-3 p-5">
+                                    <p className="text-white/60 text-sm mt-3 leading-relaxed">
+                                        Build real-world projects, join challenges, and grow your developer portfolio with structured learning experiences and expert guidance.
+                                    </p>
+                                </div>
 
-                                    <Card.Title className="text-lg font-semibold">
-                                        Become an ACME Creator!
-                                    </Card.Title>
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
 
-                                    <Card.Description className="text-white/60 text-sm">
-                                        Build real-world projects, join challenges, and grow your developer portfolio with structured learning experiences.
-                                    </Card.Description>
+                                    <span className="text-xs text-white/50">
+                                        Only 10 spots • Limited access
+                                    </span>
 
-                                    <Card.Footer className="flex items-center justify-between mt-auto">
-
-                                        <div className="text-sm text-white/60">
-                                            Only 10 spots • Limited access
-                                        </div>
-
-                                        <Button className="bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
-                                            Apply Now
-                                        </Button>
-
-                                    </Card.Footer>
+                                    <Button className="bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
+                                        Apply Now
+                                    </Button>
 
                                 </div>
 
@@ -63,74 +58,60 @@ const SomeProjectDisplay = () => {
                         </Card>
 
                         {/* LEFT SECTION */}
-                        <div className="col-span-12 lg:col-span-6 grid grid-cols-12 gap-5">
+                        <div className="col-span-12 lg:col-span-6 grid grid-cols-12 gap-6">
 
                             {/* INFO CARD */}
-                            <Card className="col-span-12 bg-white/5 border border-white/10 text-white">
+                            <Card className="col-span-12 bg-white/5 border border-white/10 text-white p-5 relative">
 
                                 <div className="absolute top-3 right-3">
                                     <CloseButton />
                                 </div>
 
-                                <Card.Header className="p-4">
-                                    <div>
-                                        <p className="text-xs text-indigo-300 uppercase tracking-wider">
-                                            Update
-                                        </p>
+                                <p className="text-xs text-indigo-300 uppercase tracking-wider">
+                                    Update
+                                </p>
 
-                                        <Card.Title className="text-base mt-1">
-                                            New Crypto Withdrawal System
-                                        </Card.Title>
+                                <h3 className="text-base font-semibold mt-2">
+                                    New Crypto Withdrawal System
+                                </h3>
 
-                                        <Card.Description className="text-white/60 text-sm">
-                                            Connect wallet and withdraw earnings instantly
-                                        </Card.Description>
-                                    </div>
-                                </Card.Header>
+                                <p className="text-white/60 text-sm mt-2 leading-relaxed">
+                                    Connect wallet and withdraw earnings instantly with improved speed, security, and transparency.
+                                </p>
 
-                                <Card.Footer className="px-4 pb-4">
-                                    <Link href="#" className="text-indigo-400 text-sm">
-                                        Go to settings →
-                                    </Link>
-                                </Card.Footer>
+                                <Link href="#" className="text-indigo-400 text-sm mt-4 inline-block">
+                                    Go to settings →
+                                </Link>
 
                             </Card>
 
                             {/* MINI CARDS */}
-                            <div className="col-span-12 grid grid-cols-12 gap-5">
+                            <div className="col-span-12 grid grid-cols-12 gap-6">
 
-                                {/* CARD 1 */}
-                                <Card className="col-span-12 sm:col-span-6 bg-white/5 border border-white/10 text-white p-3">
+                                <Card className="col-span-12 sm:col-span-6 bg-white/5 border border-white/10 p-5">
+                                    <div className="flex flex-col gap-2">
 
-                                    <Avatar className="size-14 rounded-xl mb-3">
-                                        <Avatar.Image src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo1.jpg" />
-                                    </Avatar>
+                                        <Avatar className="size-12 rounded-xl">
+                                            <Avatar.Fallback>IH</Avatar.Fallback>
+                                        </Avatar>
 
-                                    <Card.Title className="text-sm">
-                                        Indie Hackers
-                                    </Card.Title>
+                                        <h4 className="text-sm font-medium">Indie Hackers</h4>
+                                        <p className="text-white/60 text-xs">148 members</p>
 
-                                    <Card.Description className="text-white/60 text-xs">
-                                        148 members
-                                    </Card.Description>
-
+                                    </div>
                                 </Card>
 
-                                {/* CARD 2 */}
-                                <Card className="col-span-12 sm:col-span-6 bg-white/5 border border-white/10 text-white p-3">
+                                <Card className="col-span-12 sm:col-span-6 bg-white/5 border border-white/10 p-5">
+                                    <div className="flex flex-col gap-2">
 
-                                    <Avatar className="size-14 rounded-xl mb-3">
-                                        <Avatar.Image src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo2.jpg" />
-                                    </Avatar>
+                                        <Avatar className="size-12 rounded-xl">
+                                            <Avatar.Fallback>AI</Avatar.Fallback>
+                                        </Avatar>
 
-                                    <Card.Title className="text-sm">
-                                        AI Builders
-                                    </Card.Title>
+                                        <h4 className="text-sm font-medium">AI Builders</h4>
+                                        <p className="text-white/60 text-xs">362 members</p>
 
-                                    <Card.Description className="text-white/60 text-xs">
-                                        362 members
-                                    </Card.Description>
-
+                                    </div>
                                 </Card>
 
                             </div>
@@ -138,41 +119,30 @@ const SomeProjectDisplay = () => {
                         </div>
 
                         {/* RIGHT FEATURE CARD */}
-                        <Card className="col-span-12 lg:col-span-6 bg-white/5 border border-white/10 overflow-hidden relative text-white">
+                        <Card className="col-span-12 lg:col-span-6 bg-white/5 border border-white/10 text-white p-6">
 
-                            <img
-                                className="absolute inset-0 w-full h-full object-cover opacity-40"
-                                src="https://picsum.photos/id/1062/800/600"
-                            />
+                            <p className="text-xs text-indigo-300 uppercase tracking-widest">
+                                Featured
+                            </p>
 
-                            <div className="relative p-5 flex flex-col h-full min-h-[280px] justify-between">
+                            <h2 className="text-xl font-semibold mt-2">
+                                AI Learning Robot System
+                            </h2>
+
+                            <p className="text-white/60 text-sm mt-3 leading-relaxed">
+                                Interactive AI assistant that adapts to your learning style and helps you master skills faster.
+                            </p>
+
+                            <div className="flex items-center justify-between mt-8">
 
                                 <div>
-                                    <p className="text-xs text-indigo-300 tracking-widest">
-                                        FEATURED
-                                    </p>
-
-                                    <Card.Title className="text-xl mt-1">
-                                        AI Learning Robot System
-                                    </Card.Title>
-
-                                    <Card.Description className="text-white/60 text-sm mt-2">
-                                        Interactive learning assistant powered by AI for personalized education.
-                                    </Card.Description>
+                                    <p className="text-sm">Available Soon</p>
+                                    <p className="text-xs text-white/60">Get notified early</p>
                                 </div>
 
-                                <div className="flex items-center justify-between">
-
-                                    <div>
-                                        <p className="text-sm">Available Soon</p>
-                                        <p className="text-xs text-white/50">Get notified early</p>
-                                    </div>
-
-                                    <Button className="bg-white text-black">
-                                        Notify Me
-                                    </Button>
-
-                                </div>
+                                <Button className="bg-white text-black">
+                                    Notify Me
+                                </Button>
 
                             </div>
 
@@ -188,4 +158,4 @@ const SomeProjectDisplay = () => {
     );
 };
 
-export default SomeProjectDisplay;
+export default BecomeACreator;

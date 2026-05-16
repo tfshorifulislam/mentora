@@ -1,6 +1,6 @@
 import AboutUs from '@/components/AboutUs';
 import Banner from '@/components/Banner';
-import SomeProjectDisplay from '@/components/Review';
+import BecomeACreator from '@/components/Review';
 import TrustCompanies from '@/components/TrustedCompanies';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const HomePage = () => {
       <Banner />
       <TrustCompanies />
       <AboutUs />
-      <SomeProjectDisplay/>
+      <BecomeACreator/>
     </div>
   );
 };
