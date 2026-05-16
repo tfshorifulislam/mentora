@@ -23,6 +23,10 @@ const Navbar = () => {
     const user = session?.user
     console.log(user)
 
+    const handleSignOut = async () => {
+        await authClient.signOut();
+    }
+
     return (
         <nav className="sticky top-0 z-50 border-b border-white/10 bg-slate-950 backdrop-blur-xl">
 
@@ -48,11 +52,14 @@ const Navbar = () => {
 
                     {/* DESKTOP AUTH */}
                     {
-                        user ? <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
+                        user ? <Button
+                            onClick={handleSignOut}
+                            className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
                             Logout
                         </Button> :
                             <div className="hidden md:flex items-center gap-3">
-                                <Link href="/login">
+                                <Link
+                                    href="/login">
                                     <Button variant="light" className="text-white/80 hover:text-white">
                                         Login
                                     </Button>
@@ -96,8 +103,11 @@ const Navbar = () => {
                         </Button>
                             : <div className="flex w-full flex-col gap-3 pt-6 border-t border-white/10">
 
-                                <Link href="/login" className="w-full">
+                                <Link
+                                    onClick={handleSignOut}
+                                    href="/login" className="w-full">
                                     <Button
+
                                         fullWidth
                                         variant="outline"
                                         className="w-full text-white/80"

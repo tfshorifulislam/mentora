@@ -1,5 +1,6 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import {
     Button,
     Description,
@@ -13,6 +14,24 @@ import {
 import Link from "next/link";
 
 const LoginPage = () => {
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const user = Object.fromEntries(formData.entries());
+
+        const { data, error } = await authClient.signIn.email({
+            email: user.email,
+            name: user.name,
+        })
+        console.log(data, error)
+        if (data) {
+            redirect('/')
+        } else {
+            toast('Something went Wrong')
+        }
+    }
+
 
     return (
         <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 py-10 overflow-hidden relative">
@@ -43,7 +62,7 @@ const LoginPage = () => {
                     </div>
 
                     {/* FORM */}
-                    <Form className="flex flex-col gap-5">
+                    <Form onSubmit={onSubmit} className="flex flex-col gap-5">
 
                         {/* EMAIL */}
                         <TextField
