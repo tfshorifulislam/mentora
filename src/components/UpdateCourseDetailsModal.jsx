@@ -15,7 +15,26 @@ import {
     TextField
 } from "@heroui/react";
 
-export function UpdateCourseDetailsModal() {
+export function UpdateCourseDetailsModal({ course }) {
+    const { _id } = course;
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const details = new FormData(e.currentTarget);
+        const updateData = Object.fromEntries(details.entries());
+        const res = await fetch(`http://localhost:5000/mentora/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+
+            body: JSON.stringify(updateData)
+        })
+
+        const courseUpdate = await res.json();
+        console.log(courseUpdate, 'course update data');
+    }
 
     return (
 
@@ -101,14 +120,14 @@ export function UpdateCourseDetailsModal() {
 
                                 {/* FORM */}
                                 <form
-                                    // onSubmit={onSubmit}
+                                    onSubmit={onSubmit}
                                     className="grid grid-cols-1 md:grid-cols-2 gap-6"
                                 >
 
                                     {/* TITLE */}
                                     <div className="md:col-span-2">
 
-                                        <TextField name="title" isRequired>
+                                        <TextField defaultValue={course.title} name="title" isRequired>
 
                                             <Label className="text-white/80 mb-1">
                                                 Title
@@ -134,7 +153,7 @@ export function UpdateCourseDetailsModal() {
                                     {/* DESCRIPTION */}
                                     <div className="md:col-span-2">
 
-                                        <TextField name="description" isRequired>
+                                        <TextField defaultValue={course.description} name="description" isRequired>
 
                                             <Label className="text-white/80 mb-1">
                                                 Description
@@ -161,14 +180,13 @@ export function UpdateCourseDetailsModal() {
                                     {/* IMAGE */}
                                     <div className="md:col-span-2">
 
-                                        <TextField name="image" isRequired>
+                                        <TextField defaultValue={course.image} name="image" isRequired>
 
                                             <Label className="text-white/80 mb-1">
                                                 Image URL
                                             </Label>
 
                                             <Input
-                                                placeholder="https://picsum.photos/800/600"
                                                 className="
                                                     text-white
                                                     bg-white/5
@@ -185,7 +203,7 @@ export function UpdateCourseDetailsModal() {
                                     </div>
 
                                     {/* PRICE */}
-                                    <TextField name="price" isRequired>
+                                    <TextField defaultValue={course.price} name="price" isRequired>
 
                                         <Label className="text-white/80 mb-1">
                                             Price
@@ -209,6 +227,7 @@ export function UpdateCourseDetailsModal() {
 
                                     {/* BADGE */}
                                     <Select
+                                    defaultValue={course.badge}
                                         name="badge"
                                         className="w-full"
                                         placeholder="Select badge"
