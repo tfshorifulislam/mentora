@@ -5,11 +5,11 @@ import { Button, Link } from "@heroui/react";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-
     const closeMenu = () => setIsOpen(false);
 
     const navLinkClass = (path) =>
@@ -17,6 +17,11 @@ const Navbar = () => {
             ? "text-white font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-indigo-400 after:to-pink-400"
             : "text-white/70 hover:text-white"
         }`;
+
+
+    const { data: session } = authClient.useSession()
+    const user = session?.user
+    console.log(user)
 
     return (
         <nav className="sticky top-0 z-50 border-b border-white/10 bg-slate-950 backdrop-blur-xl">
@@ -42,20 +47,25 @@ const Navbar = () => {
                     </div>
 
                     {/* DESKTOP AUTH */}
-                    <div className="hidden md:flex items-center gap-3">
-                        <Link href="/login">
-                            <Button variant="light" className="text-white/80 hover:text-white">
-                                Login
-                            </Button>
-                        </Link>
+                    {
+                        user ? <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
+                            Logout
+                        </Button> :
+                            <div className="hidden md:flex items-center gap-3">
+                                <Link href="/login">
+                                    <Button variant="light" className="text-white/80 hover:text-white">
+                                        Login
+                                    </Button>
+                                </Link>
 
-                        <Link href="/signup">
-                            <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
-                                Sign Up
-                            </Button>
-                        </Link>
+                                <Link href="/signup">
+                                    <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
+                                        Sign Up
+                                    </Button>
+                                </Link>
 
-                    </div>
+                            </div>
+                    }
 
                     {/* MOBILE */}
                     <button
@@ -76,30 +86,39 @@ const Navbar = () => {
                     <Link href="/add-course" onClick={closeMenu} className={navLinkClass("/add-course")}>Add Course</Link>
                     <Link href="/admin" onClick={closeMenu} className={navLinkClass("/admin")}>Admin</Link>
 
-                    <div className="flex w-full flex-col gap-3 pt-6 border-t border-white/10">
+                    {
+                        user ? <Button
+                            fullWidth
+                            className="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white"
+                            onClick={closeMenu}
+                        >
+                            Logout
+                        </Button>
+                            : <div className="flex w-full flex-col gap-3 pt-6 border-t border-white/10">
 
-                        <Link href="/login" className="w-full">
-                            <Button
-                                fullWidth
-                                variant="outline"
-                                className="w-full text-white/80"
-                                onClick={closeMenu}
-                            >
-                                Login
-                            </Button>
-                        </Link>
+                                <Link href="/login" className="w-full">
+                                    <Button
+                                        fullWidth
+                                        variant="outline"
+                                        className="w-full text-white/80"
+                                        onClick={closeMenu}
+                                    >
+                                        Login
+                                    </Button>
+                                </Link>
 
-                        <Link href="/signup" className="w-full">
-                            <Button
-                                fullWidth
-                                className="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white"
-                                onClick={closeMenu}
-                            >
-                                Sign Up
-                            </Button>
-                        </Link>
+                                <Link href="/signup" className="w-full">
+                                    <Button
+                                        fullWidth
+                                        className="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white"
+                                        onClick={closeMenu}
+                                    >
+                                        Sign Up
+                                    </Button>
+                                </Link>
 
-                    </div>
+                            </div>
+                    }
                 </div>
             </div>
 
