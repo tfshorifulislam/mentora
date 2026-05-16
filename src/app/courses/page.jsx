@@ -42,7 +42,7 @@ const CoursesPage = async () => {
                                 <SearchField.SearchIcon />
 
                                 <SearchField.Input
-                                    className="w-full text-white placeholder:text-white/40 bg-transparent outline-none"
+                                    className="w-full text-black placeholder:text-white/40 bg-transparent outline-none"
                                     placeholder="Search by title, category..."
                                 />
 
