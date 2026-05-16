@@ -23,20 +23,7 @@ const Banner = () => {
 
             {/* DARK OVERLAY */}
             <div className="absolute inset-0 bg-black/40" />
-
-            {/* ANIMATED LINES */}
-            <div className="absolute inset-0 overflow-hidden">
-
-                <div className="absolute left-[10%] top-0 h-full w-px bg-gradient-to-b from-transparent via-indigo-500/30 to-transparent" />
-
-                <div className="absolute right-[15%] top-0 h-full w-px bg-gradient-to-b from-transparent via-pink-500/30 to-transparent" />
-
-
-                {/* <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent" /> */}
-
-
-            </div>
-
+            
             {/* CONTENT */}
             <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
 

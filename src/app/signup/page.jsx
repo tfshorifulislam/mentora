@@ -1,5 +1,6 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import {
     Button,
     Description,
@@ -9,8 +10,29 @@ import {
     Label,
     TextField
 } from "@heroui/react";
+import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const user = Object.fromEntries(formData.entries());
+
+        const { data, error } = await authClient.signUp.email({
+            email: user.email,
+            password: user.password,
+            name: user.name,
+            image: user.image,
+        })
+        console.log(data, error)
+        if (data) {
+            redirect('/')
+        } else {
+            toast('Something went Wrong')
+        }
+    }
 
     return (
         <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 py-10 overflow-hidden relative">
@@ -41,7 +63,7 @@ const SignUpPage = () => {
                     </div>
 
                     {/* FORM */}
-                    <Form className="flex flex-col gap-5">
+                    <Form onSubmit={onSubmit} className="flex flex-col gap-5">
 
                         {/* NAME */}
                         <TextField
@@ -54,7 +76,7 @@ const SignUpPage = () => {
 
                             <Input
                                 placeholder="John Doe"
-                                className="text-white"
+                                className="text-balck"
                             />
 
                             <FieldError className="text-red-400 text-sm" />
@@ -83,7 +105,7 @@ const SignUpPage = () => {
 
                             <Input
                                 placeholder="john@example.com"
-                                className="text-white"
+                                className="text-black"
                             />
 
                             <FieldError className="text-red-400 text-sm" />
@@ -102,7 +124,7 @@ const SignUpPage = () => {
 
                             <Input
                                 placeholder="Inter your image url"
-                                className="text-white"
+                                className="text-black"
                             />
 
                             <FieldError className="text-red-400 text-sm" />
@@ -138,43 +160,12 @@ const SignUpPage = () => {
 
                             <Input
                                 placeholder="Enter your password"
-                                className="text-white"
+                                className="text-black"
                             />
 
                             <Description className="text-xs text-white/40 mt-1">
                                 Must be at least 8 characters with 1 uppercase and 1 number
                             </Description>
-
-                            <FieldError className="text-red-400 text-sm" />
-
-                        </TextField>
-
-                        {/* CONFIRM PASSWORD */}
-                        <TextField
-                            isRequired
-                            name="confirmPassword"
-                            type="password"
-                            validate={(value, validationResult) => {
-
-                                const password =
-                                    validationResult?.formData?.get("password");
-
-                                if (value !== password) {
-                                    return "Passwords do not match";
-                                }
-
-                                return null;
-                            }}
-                        >
-
-                            <Label className="text-white/80 mb-1">
-                                Confirm Password
-                            </Label>
-
-                            <Input
-                                placeholder="Confirm your password"
-                                className="text-white"
-                            />
 
                             <FieldError className="text-red-400 text-sm" />
 

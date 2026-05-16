@@ -49,11 +49,7 @@ const CoursesPage = async () => {
                                 />
 
                                 <SearchField.ClearButton
-                                    className="
-            text-white/40
-            hover:text-white
-            transition
-        "
+                                    className=" text-white/40 hover:text-white transition "
                                 />
 
                             </SearchField.Group>
