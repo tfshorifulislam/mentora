@@ -6,76 +6,212 @@ import Link from "next/link";
 
 const Banner = () => {
     return (
-        <div className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800">
+        <section className="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden bg-[#020617]">
 
-            {/* Soft glow background */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.25)_0%,transparent_60%)]"></div>
+            {/* GRID BACKGROUND */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-            {/* Dark overlay for readability */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            {/* MAIN GRADIENT */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#0b1120] to-slate-950" />
 
-            {/* Blur circles (subtle) */}
-            <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-32 right-16 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl"></div>
+            {/* GLOW EFFECTS */}
+            <div className="absolute -top-40 left-[-120px] h-[500px] w-[500px] rounded-full bg-indigo-500/30 blur-[140px]" />
 
-            <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div className="absolute bottom-[-200px] right-[-120px] h-[500px] w-[500px] rounded-full bg-pink-500/30 blur-[140px]" />
 
-                <div className="space-y-6">
+            <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[120px]" />
 
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-white text-sm font-medium border border-white/20">
-                        🚀 Premium Learning Platform
-                    </div>
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-black/40" />
 
-                    {/* Main Heading */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-                        Master New Skills with{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
-                            Mentora
-                        </span>
-                    </h1>
+            {/* ANIMATED LINES */}
+            <div className="absolute inset-0 overflow-hidden">
 
-                    {/* Description */}
-                    <p className="text-base md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-                        Learn from industry experts. Get lifetime access.
-                        Build real-world projects and upgrade your career with modern web development skills.
-                    </p>
+                <div className="absolute left-[10%] top-0 h-full w-px bg-gradient-to-b from-transparent via-indigo-500/30 to-transparent" />
 
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-                        <Link href="/courses">
-                            <Button
-                                size="lg"
-                                className="text-lg px-10 py-6 font-semibold text-white 
-                                bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all"
-                            >
-                                Browse Courses
-                            </Button>
-                        </Link>
-                        <Link href="/add-course">
-                            <Button
-                                variant="bordered"
-                                size="lg"
-                                className="text-lg px-10 py-6 font-medium text-white border-white/30 hover:bg-white/10"
-                            >
-                                Become an Instructor
-                            </Button>
-                        </Link>
-                    </div>
+                <div className="absolute right-[15%] top-0 h-full w-px bg-gradient-to-b from-transparent via-pink-500/30 to-transparent" />
 
-                    {/* Stats */}
-                    <div className="pt-10 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-white/60 text-sm">
-                        <div>⭐ 4.9/5 Rating</div>
-                        <div>50,000+ Students</div>
-                        <div>300+ Courses</div>
-                        <div>Expert Instructors</div>
-                    </div>
 
-                </div>
+                {/* <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent" /> */}
+
+
             </div>
 
-        </div>
+            {/* CONTENT */}
+            <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
+
+                {/* BADGE */}
+                <div
+                    className="
+                        mb-6
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        border
+                        border-white/10
+                        bg-white/5
+                        px-5
+                        py-2
+                        text-sm
+                        font-medium
+                        text-white/80
+                        backdrop-blur-xl
+                    "
+                >
+                    🚀 Next Generation Learning Platform
+                </div>
+
+                {/* HEADING */}
+                <h1
+                    className="
+                        text-4xl
+                        font-black
+                        leading-tight
+                        tracking-tight
+                        text-white
+                        sm:text-5xl
+                        md:text-6xl
+                        lg:text-7xl
+                    "
+                >
+                    Build Your Future With{" "}
+
+                    <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Mentora
+                    </span>
+                </h1>
+
+                {/* DESCRIPTION */}
+                <p
+                    className="
+                        mx-auto
+                        mt-6
+                        max-w-3xl
+                        text-base
+                        leading-relaxed
+                        text-white/65
+                        sm:text-lg
+                        md:text-xl
+                    "
+                >
+                    Learn modern web development with premium courses,
+                    real-world projects, expert mentorship, and a strong
+                    developer community designed for rapid growth.
+                </p>
+
+                {/* BUTTONS */}
+                <div
+                    className="
+                        mt-10
+                        flex
+                        flex-col
+                        items-center
+                        justify-center
+                        gap-4
+                        sm:flex-row
+                    "
+                >
+
+                    <Link href="/courses">
+
+                        <Button
+                            size="lg"
+                            className="
+                                h-14
+                                rounded-2xl
+                                bg-gradient-to-r
+                                from-indigo-500
+                                via-purple-500
+                                to-pink-500
+                                px-10
+                                text-base
+                                font-semibold
+                                text-white
+                                shadow-2xl
+                                shadow-purple-500/30
+                                transition-all
+                                duration-300
+                                hover:scale-105
+                                hover:shadow-purple-500/50
+                            "
+                        >
+                            Browse Courses
+                        </Button>
+
+                    </Link>
+
+                    <Link href="/add-course">
+
+                        <Button
+                            variant="bordered"
+                            size="lg"
+                            className="
+                                h-14
+                                rounded-2xl
+                                border-white/15
+                                bg-white/5
+                                px-10
+                                text-base
+                                font-medium
+                                text-white
+                                backdrop-blur-xl
+                                transition-all
+                                duration-300
+                                hover:border-white/30
+                                hover:bg-white/10
+                            "
+                        >
+                            Become Instructor
+                        </Button>
+
+                    </Link>
+
+                </div>
+
+                {/* STATS */}
+                <div
+                    className="
+                        mt-14
+                        flex
+                        flex-wrap
+                        items-center
+                        justify-center
+                        gap-4
+                        sm:gap-6
+                        md:gap-10
+                    "
+                >
+
+                    {[
+                        "⭐ 4.9 Rating",
+                        "🔥 50K+ Students",
+                        "🎯 300+ Courses",
+                        "💼 Career Focused"
+                    ].map((item) => (
+                        <div
+                            key={item}
+                            className="
+                                rounded-2xl
+                                border
+                                border-white/10
+                                bg-white/5
+                                px-5
+                                py-3
+                                text-sm
+                                text-white/70
+                                backdrop-blur-xl
+                            "
+                        >
+                            {item}
+                        </div>
+                    ))}
+
+                </div>
+
+            </div>
+
+        </section>
     );
 };
 

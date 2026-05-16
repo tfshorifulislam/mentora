@@ -25,11 +25,13 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
 
                     {/* LOGO */}
-                    <div className="text-2xl font-bold tracking-tight text-white">
-                        <span className="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
-                            Mentora
-                        </span>
-                    </div>
+                    <Link href="/">
+                        <div className="text-2xl font-bold tracking-tight text-white">
+                            <span className="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
+                                Mentora
+                            </span>
+                        </div>
+                    </Link>
 
                     {/* DESKTOP NAV */}
                     <div className="hidden md:flex items-center gap-8 text-sm">
