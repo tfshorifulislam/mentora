@@ -94,7 +94,7 @@ const SignUpPage = () => {
                         <TextField
                             name="Image"
                             type="url"
-                            
+
                         >
                             <Label className="text-white/80 mb-1">
                                 Image
@@ -201,6 +201,30 @@ const SignUpPage = () => {
                         </div>
 
                     </Form>
+
+
+                    {/* DIVIDER */}
+                    <div className="my-7 flex items-center gap-4">
+
+                        <div className="h-px flex-1 bg-white/10"></div>
+
+                        <span className="text-xs uppercase tracking-widest text-white/40">
+                            OR
+                        </span>
+
+                        <div className="h-px flex-1 bg-white/10"></div>
+
+                    </div>
+
+                    {/* SOCIAL LOGIN */}
+                    <Button
+                        variant="bordered"
+                        className="w-full border-white/10 bg-white/5 py-6 text-white hover:bg-white/10"
+                    >
+                        Continue with Google
+                    </Button>
+
+
 
                     {/* FOOTER */}
                     <div className="mt-8 text-center">

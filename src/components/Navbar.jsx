@@ -74,14 +74,29 @@ const Navbar = () => {
                     <Link href="/add-course" onClick={closeMenu} className={navLinkClass("/add-course")}>Add Course</Link>
                     <Link href="/admin" onClick={closeMenu} className={navLinkClass("/admin")}>Admin</Link>
 
-                    <div className="flex flex-col gap-3 pt-6 border-t border-white/10">
-                        <Button fullWidth variant="light" className="text-white/80" onClick={closeMenu}>
-                            Login
-                        </Button>
+                    <div className="flex w-full flex-col gap-3 pt-6 border-t border-white/10">
 
-                        <Button fullWidth className="bg-gradient-to-r from-indigo-500 to-pink-500" onClick={closeMenu}>
-                            Sign Up
-                        </Button>
+                        <Link href="/login" className="w-full">
+                            <Button
+                                fullWidth
+                                variant="outline"
+                                className="w-full text-white/80"
+                                onClick={closeMenu}
+                            >
+                                Login
+                            </Button>
+                        </Link>
+
+                        <Link href="/signup" className="w-full">
+                            <Button
+                                fullWidth
+                                className="w-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white"
+                                onClick={closeMenu}
+                            >
+                                Sign Up
+                            </Button>
+                        </Link>
+
                     </div>
                 </div>
             </div>
