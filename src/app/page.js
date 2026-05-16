@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import BecomeACreator from '@/components/Review';
 import TrustCompanies from '@/components/TrustedCompanies';
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <AboutUs />
       <BecomeACreator />
       <Footer />
+      <Toaster />
     </div>
   );
 };

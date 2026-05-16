@@ -1,55 +1,270 @@
 "use client";
-import { AlertDialog, Button } from "@heroui/react";
+
+import React from "react";
+
+import {
+    AlertDialog,
+    Button
+} from "@heroui/react";
+import { MdDeleteForever } from "react-icons/md";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+
+export function CourseDelete({ course }) {
+
+    const { _id } = course;
+
+    const onSubmit = async () => {
+
+        try {
+
+            const res = await fetch(
+                `http://localhost:5000/mentora/${_id}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        "content-type": "application/json"
+                    }
+                }
+            );
+
+            const courseDelete = await res.json();
+
+            // console.log(courseDelete, "course delete data");
 
 
-export function CourseDelete({course}) {
-    const {_id} = course;
+        } catch (error) {
 
-    const onSubmit = async (e) => {
-        const res = await fetch(`http://localhost:5000/mentora/${_id}`, {
-            method: 'DELETE',
-            headers: {
-                'content-type': 'application/json'
-            },
-        })
-
-        const courseDelete = await res.json();
-        console.log(courseDelete, 'course delete data');
-    }
-
+            console.log('delete course alert component data fetch system not working');
+        }
+        toast.success(`${course.title} Permanently deleted`)
+        redirect('/courses')
+    };
 
     return (
+
         <AlertDialog>
+
+            {/* OPEN BUTTON */}
             <Button
-                className="h-14 rounded-2xl  bg-red-500/10 border border-red-500/20 text-red-400 font-semibold  hover:bg-red-500  hover:text-white transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-red-500/10"
-                variant="danger">
+                className="
+                    w-full
+                    sm:w-auto
+                    h-14
+                    rounded-2xl
+                    border
+                    border-red-500/20
+                    bg-red-500/10
+                    px-6
+                    font-semibold
+                    text-red-400
+                    shadow-lg
+                    shadow-red-500/10
+                    transition-all
+                    duration-300
+                    hover:scale-[1.02]
+                    hover:bg-red-500
+                    hover:text-white
+                "
+            >
                 Delete Course
             </Button>
-            <AlertDialog.Backdrop>
-                <AlertDialog.Container>
-                    <AlertDialog.Dialog className="sm:max-w-[400px]">
-                        <AlertDialog.CloseTrigger />
-                        <AlertDialog.Header>
-                            <AlertDialog.Icon status="danger" />
-                            <AlertDialog.Heading>Delete Course permanently?</AlertDialog.Heading>
+
+            {/* BACKDROP */}
+            <AlertDialog.Backdrop
+                className="
+                    bg-black/70
+                    backdrop-blur-sm
+                "
+            >
+
+                <AlertDialog.Container
+                    className="p-4"
+                >
+
+                    {/* DIALOG */}
+                    <AlertDialog.Dialog
+                        className="
+                            w-full
+                            max-w-md
+                            rounded-3xl
+                            border
+                            border-white/10
+                            bg-slate-950
+                            text-white
+                            shadow-2xl
+                            backdrop-blur-2xl
+                        "
+                    >
+
+                        <AlertDialog.CloseTrigger
+                            className="
+                                absolute
+                                right-4
+                                top-4
+                                text-white
+                                bg-red-700
+                                hover:text-white
+                            "
+                        />
+
+                        {/* HEADER */}
+                        <AlertDialog.Header
+                            className="
+                                flex
+                                flex-col
+                                items-start
+                                gap-4
+                                border-b
+                                border-white/10
+                                px-6
+                                py-6
+                            "
+                        >
+
+                            <div
+                                className="
+                                    flex
+                                    h-14
+                                    w-14
+                                    items-center
+                                    justify-center
+                                    rounded-2xl
+                                    border
+                                    border-red-500/20
+                                    bg-red-500/10
+                                "
+                            >
+
+                                <MdDeleteForever className="text-3xl text-red-700" />
+
+
+                            </div>
+
+                            <div>
+
+                                <AlertDialog.Heading
+                                    className="
+                                        text-2xl
+                                        font-bold
+                                        leading-tight
+                                        text-white/50
+                                    "
+                                >
+                                    Delete{" "}
+
+                                    <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+                                        Course
+                                    </span>
+
+                                    ?
+                                </AlertDialog.Heading>
+
+                                <p className="mt-2 text-sm text-white/60 leading-relaxed">
+                                    This action is permanent and cannot be undone.
+                                </p>
+
+                            </div>
+
                         </AlertDialog.Header>
-                        <AlertDialog.Body>
-                            <p>
-                                This will permanently delete <strong>{course.title}</strong> and all of its
-                                data. This action cannot be undone.
-                            </p>
+
+                        {/* BODY */}
+                        <AlertDialog.Body
+                            className="
+                                px-6
+                                py-6
+                            "
+                        >
+
+                            <div
+                                className="
+                                    rounded-2xl
+                                    border
+                                    border-white/10
+                                    bg-white/5
+                                    p-5
+                                "
+                            >
+
+                                <p className="text-sm leading-relaxed text-white/70">
+
+                                    You are about to permanently delete{" "}
+
+                                    <span className="font-semibold text-white">
+                                        {course.title}
+                                    </span>
+
+                                    . All related course data will be removed permanently.
+
+                                </p>
+
+                            </div>
+
                         </AlertDialog.Body>
-                        <AlertDialog.Footer>
-                            <Button slot="close" variant="tertiary">
+
+                        {/* FOOTER */}
+                        <AlertDialog.Footer
+                            className="
+                                flex
+                                flex-col-reverse
+                                gap-3
+                                border-t
+                                border-white/10
+                                px-6
+                                py-5
+                                sm:flex-row
+                                sm:justify-end
+                            "
+                        >
+
+                            <Button
+                                slot="close"
+                                className="
+                                    w-full
+                                    sm:w-auto
+                                    rounded-xl
+                                    border
+                                    border-white/10
+                                    bg-white/5
+                                    px-6
+                                    text-white/70
+                                    hover:bg-white/10
+                                "
+                            >
                                 Cancel
                             </Button>
-                            <Button onClick={onSubmit} slot="close" variant="danger">
-                                Delete Course
+
+                            <Button
+                                slot="close"
+                                onClick={onSubmit}
+                                className="
+                                    w-full
+                                    sm:w-auto
+                                    rounded-xl
+                                    bg-gradient-to-r
+                                    from-red-500
+                                    to-pink-500
+                                    px-6
+                                    font-semibold
+                                    text-white
+                                    shadow-lg
+                                    shadow-red-500/20
+                                    transition-all
+                                    duration-300
+                                    hover:scale-[1.02]
+                                "
+                            >
+                                Delete Permanently
                             </Button>
+
                         </AlertDialog.Footer>
+
                     </AlertDialog.Dialog>
+
                 </AlertDialog.Container>
+
             </AlertDialog.Backdrop>
+
         </AlertDialog>
     );
 }
