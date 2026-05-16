@@ -1,3 +1,5 @@
+import { UpdateCourseDetailsModal } from '@/components/UpdateCourseDetailsModal';
+import { Button } from '@heroui/react';
 import React from 'react';
 
 const CoursesDetails = async ({ params }) => {
@@ -126,7 +128,18 @@ const CoursesDetails = async ({ params }) => {
                                     Community Access
                                 </h3>
                             </div>
+                            {/* ACTION BUTTONS */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                                {/* UPDATE BUTTON */}
+                                <UpdateCourseDetailsModal />
 
+                                {/* DELETE BUTTON */}
+                                <Button
+                                    className="h-14 rounded-2xl  bg-red-500/10 border border-red-500/20 text-red-400 font-semibold  hover:bg-red-500  hover:text-white transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-red-500/10">
+                                    Delete Course
+                                </Button>
+
+                            </div>
                         </div>
 
                     </div>
