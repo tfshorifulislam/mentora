@@ -12,6 +12,8 @@ import {
 } from "@heroui/react";
 
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
 
@@ -21,8 +23,8 @@ const LoginPage = () => {
         const user = Object.fromEntries(formData.entries());
 
         const { data, error } = await authClient.signIn.email({
-            email: user.email,
-            name: user.name,
+            email: user?.email,
+            password: user?.password,
         })
         console.log(data, error)
         if (data) {
@@ -89,7 +91,7 @@ const LoginPage = () => {
 
                             <Input
                                 placeholder="john@example.com"
-                                className="text-white"
+                                className="text-black"
                             />
 
                             <FieldError className="text-sm text-red-400" />
@@ -129,7 +131,7 @@ const LoginPage = () => {
 
                             <Input
                                 placeholder="Enter your password"
-                                className="text-white"
+                                className="text-black"
                             />
 
                             <Description className="mt-1 text-xs text-white/40">
