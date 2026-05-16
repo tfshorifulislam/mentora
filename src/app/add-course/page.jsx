@@ -12,6 +12,26 @@ import {
 } from "@heroui/react";
 
 export default function AddCoursesPage() {
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const mentora = Object.fromEntries(formData.entries());
+
+        const res = await fetch('http://localhost:5000/mentora', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(mentora)
+        })
+        const data = await res.json();
+        console.log(data);
+    }
+
+
+
     return (
         <div className="min-h-screen bg-slate-950 text-white px-6 py-12 flex justify-center relative overflow-hidden">
 
@@ -30,7 +50,7 @@ export default function AddCoursesPage() {
                     </h1>
 
                     {/* FORM */}
-                    <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         {/* TITLE */}
                         <div className="md:col-span-2">
