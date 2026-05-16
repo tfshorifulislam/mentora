@@ -14,6 +14,8 @@ import {
     TextArea,
     TextField
 } from "@heroui/react";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 export function UpdateCourseDetailsModal({ course }) {
     const { _id } = course;
@@ -34,6 +36,8 @@ export function UpdateCourseDetailsModal({ course }) {
 
         const courseUpdate = await res.json();
         console.log(courseUpdate, 'course update data');
+        toast.success('Course Details successfully Updated')
+        redirect('/courses')
     }
 
     return (
@@ -44,7 +48,7 @@ export function UpdateCourseDetailsModal({ course }) {
             <Button
                 className="
                     h-14
-                    rounded-2xl
+                    rounded-sm
                     bg-gradient-to-r
                     from-indigo-500
                     to-pink-500
@@ -227,7 +231,7 @@ export function UpdateCourseDetailsModal({ course }) {
 
                                     {/* BADGE */}
                                     <Select
-                                    defaultValue={course.badge}
+                                        isRequired
                                         name="badge"
                                         className="w-full"
                                         placeholder="Select badge"
@@ -239,11 +243,11 @@ export function UpdateCourseDetailsModal({ course }) {
 
                                         <Select.Trigger
                                             className="
-                                                bg-white/5
-                                                border
-                                                border-white/10
-                                                rounded-xl
-                                                text-white
+                                            bg-white/5
+                                            border
+                                            border-white/10
+                                            rounded-xl
+                                            text-white
                                             "
                                         >
                                             <Select.Value />
@@ -253,7 +257,6 @@ export function UpdateCourseDetailsModal({ course }) {
                                         <Select.Popover>
 
                                             <ListBox>
-
                                                 <ListBox.Item id="frontend">
                                                     Frontend Development
                                                 </ListBox.Item>

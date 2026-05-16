@@ -51,7 +51,7 @@ export function CourseDelete({ course }) {
                     w-full
                     sm:w-auto
                     h-14
-                    rounded-2xl
+                    rounded-sm
                     border
                     border-red-500/20
                     bg-red-500/10

@@ -130,7 +130,7 @@ const CoursesDetails = async ({ params }) => {
                                 </h3>
                             </div>
                             {/* ACTION BUTTONS */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <div className="flex gap-4 mt-6">
                                 {/* UPDATE BUTTON */}
                                 <UpdateCourseDetailsModal course={course} />
 
