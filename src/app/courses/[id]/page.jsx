@@ -1,3 +1,4 @@
+import { CourseDelete } from '@/components/CourseDeleteAlert';
 import { UpdateCourseDetailsModal } from '@/components/UpdateCourseDetailsModal';
 import { Button } from '@heroui/react';
 import React from 'react';
@@ -134,10 +135,7 @@ const CoursesDetails = async ({ params }) => {
                                 <UpdateCourseDetailsModal course={course} />
 
                                 {/* DELETE BUTTON */}
-                                <Button
-                                    className="h-14 rounded-2xl  bg-red-500/10 border border-red-500/20 text-red-400 font-semibold  hover:bg-red-500  hover:text-white transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-red-500/10">
-                                    Delete Course
-                                </Button>
+                                <CourseDelete course={course} />
 
                             </div>
                         </div>
