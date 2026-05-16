@@ -13,10 +13,9 @@ const Navbar = () => {
     const closeMenu = () => setIsOpen(false);
 
     const navLinkClass = (path) =>
-        `no-underline transition-colors relative ${
-            pathname === path
-                ? "text-white font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-indigo-400 after:to-pink-400"
-                : "text-white/70 hover:text-white"
+        `no-underline transition-colors relative ${pathname === path
+            ? "text-white font-semibold after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-indigo-400 after:to-pink-400"
+            : "text-white/70 hover:text-white"
         }`;
 
     return (
@@ -42,13 +41,18 @@ const Navbar = () => {
 
                     {/* DESKTOP AUTH */}
                     <div className="hidden md:flex items-center gap-3">
-                        <Button variant="light" className="text-white/80 hover:text-white">
-                            Login
-                        </Button>
+                        <Link href="/login">
+                            <Button variant="light" className="text-white/80 hover:text-white">
+                                Login
+                            </Button>
+                        </Link>
 
-                        <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
-                            Sign Up
-                        </Button>
+                        <Link href="/signup">
+                            <Button className="text-white font-semibold bg-gradient-to-r from-indigo-500 to-pink-500">
+                                Sign Up
+                            </Button>
+                        </Link>
+
                     </div>
 
                     {/* MOBILE */}
