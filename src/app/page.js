@@ -1,5 +1,6 @@
 import AboutUs from '@/components/AboutUs';
 import Banner from '@/components/Banner';
+import Footer from '@/components/Footer';
 import BecomeACreator from '@/components/Review';
 import TrustCompanies from '@/components/TrustedCompanies';
 import React from 'react';
@@ -10,7 +11,8 @@ const HomePage = () => {
       <Banner />
       <TrustCompanies />
       <AboutUs />
-      <BecomeACreator/>
+      <BecomeACreator />
+      <Footer />
     </div>
   );
 };
