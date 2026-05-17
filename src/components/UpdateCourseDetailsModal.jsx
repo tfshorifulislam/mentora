@@ -16,6 +16,7 @@ import {
 } from "@heroui/react";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export function UpdateCourseDetailsModal({ course }) {
     const { _id } = course;
@@ -25,17 +26,22 @@ export function UpdateCourseDetailsModal({ course }) {
         e.preventDefault();
         const details = new FormData(e.currentTarget);
         const updateData = Object.fromEntries(details.entries());
+
+        const { data } = await authClient.token()
+
+
         const res = await fetch(`http://localhost:5000/mentora/${_id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${data.token}`
             },
 
             body: JSON.stringify(updateData)
         })
 
         const courseUpdate = await res.json();
-        console.log(courseUpdate, 'course update data');
+        // console.log(courseUpdate, 'course update data');
         toast.success('Course Details successfully Updated')
         redirect('/courses')
     }

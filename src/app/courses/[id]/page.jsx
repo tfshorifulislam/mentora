@@ -1,14 +1,21 @@
 import { CourseDelete } from '@/components/CourseDeleteAlert';
 import { UpdateCourseDetailsModal } from '@/components/UpdateCourseDetailsModal';
-import { Button } from '@heroui/react';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import React from 'react';
 
 const CoursesDetails = async ({ params }) => {
 
     const { id } = await params;
 
+    const userToken = await auth.api.getToken({
+        headers: await headers()
+    })
+
     const res = await fetch(`http://localhost:5000/mentora/${id}`, {
-        cache: "no-store"
+        headers: {
+            authorization: `Bearer ${userToken.token}`
+        }
     });
 
     const course = await res.json();

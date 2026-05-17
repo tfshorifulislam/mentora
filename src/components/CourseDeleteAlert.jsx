@@ -1,7 +1,5 @@
 "use client";
-
 import React from "react";
-
 import {
     AlertDialog,
     Button
@@ -9,6 +7,7 @@ import {
 import { MdDeleteForever } from "react-icons/md";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export function CourseDelete({ course }) {
 
@@ -16,14 +15,17 @@ export function CourseDelete({ course }) {
 
     const onSubmit = async () => {
 
+        const { data } = await authClient.token()
+        // console.log('Data', data)
+
         try {
 
-            const res = await fetch(
-                `http://localhost:5000/mentora/${_id}`,
+            const res = await fetch(`http://localhost:5000/mentora/${_id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "content-type": "application/json"
+                        "content-type": "application/json",
+                        authorization: `Bearer ${data.token}`
                     }
                 }
             );

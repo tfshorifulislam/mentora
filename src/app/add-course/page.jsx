@@ -10,6 +10,9 @@ import {
     ListBox,
     TextArea
 } from "@heroui/react";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export default function AddCoursesPage() {
 
@@ -19,15 +22,20 @@ export default function AddCoursesPage() {
         const formData = new FormData(e.currentTarget);
         const mentora = Object.fromEntries(formData.entries());
 
+        const { data: token } = await authClient.token()
+
         const res = await fetch('http://localhost:5000/mentora', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token.token}`
             },
             body: JSON.stringify(mentora)
         })
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
+        toast.success('New course successfully added')
+        redirect('/courses')
     }
 
 

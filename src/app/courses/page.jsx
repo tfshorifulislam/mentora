@@ -1,10 +1,23 @@
 import CoursesCard from "@/components/CoursesCard";
+import { auth } from "@/lib/auth";
 import { Label, SearchField } from "@heroui/react";
+import { headers } from "next/headers";
 
 const CoursesPage = async () => {
-    const res = await fetch("http://localhost:5000/mentora");
+    //server component token get system
+    const userToken = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log('User token', userToken)
+
+    const res = await fetch("http://localhost:5000/mentora", {
+        headers: {
+            authorization: `Bearer ${userToken.token}`
+        }
+    });
 
     const data = await res.json();
+    console.log(data)
 
     return (
         <div className="min-h-screen bg-slate-950 text-white">
@@ -60,7 +73,7 @@ const CoursesPage = async () => {
                 {/* GRID */}
                 {data?.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {data.map((course) => (
+                        {data?.map((course) => (
                             <CoursesCard key={course._id} course={course} />
                         ))}
                     </div>

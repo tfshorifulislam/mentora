@@ -9,7 +9,6 @@ export async function proxy(request) {
     })
 
     if (!session) {
-
         return NextResponse.redirect(new URL('/signup', request.url))
     }
 }
