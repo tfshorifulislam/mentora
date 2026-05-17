@@ -24,7 +24,7 @@ export default function AddCoursesPage() {
 
         const { data: token } = await authClient.token()
 
-        const res = await fetch('http://localhost:5000/mentora', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/mentora`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

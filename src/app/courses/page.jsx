@@ -10,7 +10,7 @@ const CoursesPage = async () => {
     })
     console.log('User token', userToken)
 
-    const res = await fetch("http://localhost:5000/mentora", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/mentora`, {
         headers: {
             authorization: `Bearer ${userToken.token}`
         }
