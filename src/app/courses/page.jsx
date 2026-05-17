@@ -2,9 +2,7 @@ import CoursesCard from "@/components/CoursesCard";
 import { Label, SearchField } from "@heroui/react";
 
 const CoursesPage = async () => {
-    const res = await fetch("http://localhost:5000/mentora", {
-        cache: "no-store",
-    });
+    const res = await fetch("http://localhost:5000/mentora");
 
     const data = await res.json();
 
