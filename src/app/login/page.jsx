@@ -34,6 +34,11 @@ const LoginPage = () => {
         }
     }
 
+    const handleLoginWithGoogle = async () => {
+        await authClient.signIn.social({
+            provider: 'google'
+        })
+    }
 
     return (
         <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 py-10 overflow-hidden relative">
@@ -179,6 +184,7 @@ const LoginPage = () => {
 
                     {/* SOCIAL LOGIN */}
                     <Button
+                        onClick={handleLoginWithGoogle}
                         variant="bordered"
                         className="w-full border-white/10 bg-white/5 py-6 text-white hover:bg-white/10"
                     >
