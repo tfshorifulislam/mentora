@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mentora
 
-## Getting Started
+Mentora is a modern online course selling platform where students can explore, purchase, and learn from high-quality development courses.
 
-First, run the development server:
+The platform focuses on providing structured learning experiences with secure authentication and a clean modern UI.
+
+---
+
+# 🌐 Live Website
+
+https://mentora-neon-eta.vercel.app
+
+## Preview
+<img width="1901" height="923" alt="Screenshot 2026-05-21 160346" src="https://github.com/user-attachments/assets/94dd2915-9626-439a-8111-5ee309045783" />
+
+
+---
+
+# 🚀 Features
+
+- User Authentication System
+- Google Login Authentication
+- Secure Better Auth Integration
+- Course Selling Platform
+- Responsive Modern UI
+- Protected Routes
+- Toast Notifications
+- Dynamic Course Pages
+- MongoDB Database Integration
+- Fast Performance with Next.js
+
+---
+
+# 🛠️ Technologies Used
+
+## Frontend
+
+- Next.js
+- React.js
+- Tailwind CSS
+- React Icons
+- React Hot Toast
+
+## Authentication
+
+- Better Auth
+- Google OAuth
+
+## Backend & Database
+
+- MongoDB
+
+---
+
+# 📦 Packages Used
+
+```bash
+next
+react
+react-dom
+tailwindcss
+mongodb
+better-auth
+react-icons
+react-hot-toast
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/your-username/mentora.git
+```
+
+## Move to Project Folder
+
+```bash
+cd mentora
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+## Setup Environment Variables
+
+Create a `.env.local` file and add:
+
+```env
+MONGODB_URI=your_mongodb_uri
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+BETTER_AUTH_SECRET=your_secret
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+---
+
+# ▶️ Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+src/
+ ├── app/
+ ├── components/
+ ├── lib/
+ ├── hooks/
+ ├── providers/
+ └── styles/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 🔐 Authentication
 
-## Deploy on Vercel
+Mentora uses:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Better Auth
+- Google OAuth Login
+- Session Based Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+# 📱 Responsive Design
+
+The website is fully responsive for:
+
+- Mobile
+- Tablet
+- Desktop
+
+---
+
+# 🔗 Links
+
+## Live Site
+
+https://mentora-neon-eta.vercel.app
+
+## GitHub Client
+
+https://github.com/tfshorifulislam/mentora
+
+---
+
+# 👨‍💻 Developer
+
+Developed by TF Shoriful Islam
+
+---
+
+# 📄 License
+
+This project is licensed for educational purposes.
