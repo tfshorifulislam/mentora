@@ -1,19 +1,22 @@
+import Image from "next/image";
 import React from "react";
 
 const AboutUs = () => {
     return (
         <div className="min-h-screen bg-slate-950 text-white">
-
             <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                 {/* IMAGE */}
-                <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-pink-500 blur-2xl opacity-30 rounded-2xl"></div>
+                <div className="relative w-full h-[450px]">
 
-                    <img
-                        src="/business.jpg"
+                    {/* glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-pink-500 blur-2xl opacity-30 rounded-2xl"></div>
+
+                    <Image
+                        src="/123.png"
                         alt="About Mentora"
-                        className="relative w-full rounded-2xl shadow-xl border border-white/10"
+                        fill
+                        className="object-cover rounded-2xl shadow-xl border border-white/10"
                     />
                 </div>
 
@@ -21,7 +24,10 @@ const AboutUs = () => {
                 <div>
 
                     <h1 className="text-4xl md:text-5xl font-bold">
-                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Mentora</span>
+                        About{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
+                            Mentora
+                        </span>
                     </h1>
 
                     <p className="text-white/70 mt-5 leading-relaxed">
@@ -67,36 +73,10 @@ const AboutUs = () => {
                             Real-world project based learning
                         </li>
 
-                        <li className="flex items-center gap-2">
-                            <span className="text-indigo-400">✔</span>
-                            Lifetime access to content
-                        </li>
-
-                        <li className="flex items-center gap-2">
-                            <span className="text-indigo-400">✔</span>
-                            Modern tech stack (React, Next.js, Node)
-                        </li>
-
-                        <li className="flex items-center gap-2">
-                            <span className="text-indigo-400">✔</span>
-                            Beginner to advanced roadmap
-                        </li>
-
-                        <li className="flex items-center gap-2">
-                            <span className="text-indigo-400">✔</span>
-                            24/7 learning support community
-                        </li>
-
-                        <li className="flex items-center gap-2">
-                            <span className="text-indigo-400">✔</span>
-                            Career focused learning system
-                        </li>
-
                     </ul>
 
                 </div>
             </div>
-
         </div>
     );
 };
