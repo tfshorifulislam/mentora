@@ -72,7 +72,7 @@ react-hot-toast
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mentora.git
+git clone https://github.com/tfshoriulislam/mentora.git
 ```
 
 ## Move to Project Folder
